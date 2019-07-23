@@ -1,4 +1,3 @@
-# Simple demo of of the WS2801/SPI-like addressable RGB LED lights.
 import time
 import RPi.GPIO as GPIO
 
@@ -14,10 +13,10 @@ SPI_PORT = 0
 SPI_DEVICE = 0
 pixels = Adafruit_WS2801.WS2801Pixels(PIXEL_COUNT, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE), gpio=GPIO)
 
-for j in range(10):
+for j in range(25):
     pixels.clear()
     pixels.show()
-    color = (255-25*j, 25*j, 0)
-    pixels.set_pixel(0, Adafruit_WS2801.RGB_to_color(color[0], color[1], color[2]))
+    color = (255-10*j, 10*j, 0)
+    pixels.set_pixel(j, Adafruit_WS2801.RGB_to_color(color[0], color[1], color[2]))
     pixels.show()
     time.sleep(2)
