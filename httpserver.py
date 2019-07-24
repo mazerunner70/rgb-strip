@@ -1,6 +1,6 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 
-PORT_NUMBER = 80
+PORT_NUMBER = 2280
 
 
 # This class will handles any incoming request from
@@ -13,7 +13,7 @@ class myHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.end_headers()
         # Send the html message
-        self.wfile.write("Hello World !")
+        self.wfile.write("Hello World !"+self.path)
         return
 
 
