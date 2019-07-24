@@ -13,15 +13,23 @@ class myHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/html')
         self.end_headers()
         # Send the html message
-        self.wfile.write("Hello World !"+self.path)
+
         if self.path == '/full':
             self.run_full()
+        else:
+            # self.wfile.write("Hello World !" + self.path)
+            self.load_file()
         return
 
     def run_full(self):
+        self.wfile.write("Starting full demo")
         fulldemo = FullDemo()
         fulldemo.doall()
 
+    def load_file(self):
+        with open('webpage'+self.path, 'r') as myfile:
+            data = myfile.read()
+            self.wfile.write(data)
 
 try:
     # Create a web server and define the handler to manage the
