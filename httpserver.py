@@ -14,7 +14,7 @@ class myHandler(BaseHTTPRequestHandler):
         self.end_headers()
         # Send the html message
 
-        if self.path == '/full':
+        if self.path == '/full-demo':
             self.run_full()
         else:
             # self.wfile.write("Hello World !" + self.path)
