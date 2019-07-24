@@ -10,7 +10,10 @@ class myHandler(BaseHTTPRequestHandler):
     # Handler for the GET requests
     def do_GET(self):
         self.send_response(200)
-        self.send_header('Content-type', 'text/html')
+        filetype = 'text/html'
+        if str(self.path).endswith('.css'):
+            filetype = 'text/css'
+        self.send_header('Content-type', filetype)
         self.end_headers()
         # Send the html message
 
