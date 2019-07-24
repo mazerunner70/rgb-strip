@@ -1,5 +1,5 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-
+from demo.full import FullDemo
 PORT_NUMBER = 2280
 
 
@@ -14,7 +14,13 @@ class myHandler(BaseHTTPRequestHandler):
         self.end_headers()
         # Send the html message
         self.wfile.write("Hello World !"+self.path)
+        if self.path == '/full':
+            self.run_full()
         return
+
+    def run_full(self):
+        fulldemo = FullDemo()
+        fulldemo.doall()
 
 
 try:
