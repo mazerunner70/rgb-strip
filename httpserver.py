@@ -16,7 +16,7 @@ class myHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type', filetype)
         self.end_headers()
         # Send the html message
-
+        print "path:"+self.path
         if self.path == '/full-demo':
             self.run_full()
         else:
