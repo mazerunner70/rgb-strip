@@ -1,5 +1,5 @@
 const Http = new XMLHttpRequest();
-const url='https://raspberrypi-lia:7772/full-demo';
+const url='https://raspberrypi-lia:2280/full-demo';
 
 function runFullDemo() {
     Http.open("GET", url);
